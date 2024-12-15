@@ -1,0 +1,50 @@
+Aim: Design a system using Arduino where you can monitor Temperature and Humidity of a place on an LCD.
+
+Hardware Library: ARDUINO UNO
+
+
+Components: Temp. And Humidity Sensor
+
+Theory:
+
+DHT11 Sensor:
+The DHT11 is a basic, low cost digital temperature and humidity sensor.
+
+∙	DHT11 is a single wire digital humidity and temperature sensor, which provides humidity and temperature values serially with one-wire protocol.
+∙	DHT11 sensor provides relative humidity value in percentage (20 to 90% RH) and temperature values in degree Celsius (0 to 50 °C).
+∙	DHT11 sensor uses resistive humidity measurement component, and NTC temperature measurement component.
+
+Explanation:
+Physical Connections:-
+
+In breadboard connect DHT11 sensor
+
+Back side pins of sensor:- ( in breadboard vertical connections( in between) are there)
+
+1)	VCC to 5v in Arduino board
+2)	DATA to pin 4 of digital pin of Arduino
+3)	Gnd to Gnd of Arduino board Connect USB from lappy to Arduino
+
+Code:
+#include <dht11.h> #define DHT11PIN 4 dht11 DHT11;
+void setup()
+{
+ 
+
+
+Serial.begin(9600);
+}
+void loop()
+{
+Serial.println();
+int chk = DHT11.read(DHT11PIN); Serial.print("Humidity (%): "); Serial.println((float)DHT11.humidity, 2); Serial.print("Temperature (C): ");
+Serial.println((float)DHT11.temperature, 2); delay(2
+000); }
+Output:
+
+
+ 
+
+
+ 
+ 
