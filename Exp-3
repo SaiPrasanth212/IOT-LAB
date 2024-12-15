@@ -1,0 +1,119 @@
+Aim: Run some python programs on Pi like:
+
+a)	Read your name and print Hello message with name.
+
+Python Program:
+name = input('What is your name?\n') print ('Hello %s.' % name)
+
+Output:
+What is your name?
+Dr. Pankaj Dadheech
+Hello Dr. Pankaj Dadheech.
+
+b)	Read two numbers and print their sum, difference, product and division.
+
+Python Program:
+num1 = int(input("Enter First Number: ")) num2 = int(input("Enter Second Number: "))
+
+print("Enter which operation would you like to perform?")
+ch = input("Enter any of these char for specific operation +,-,*,/: ")
+
+result = 0 if ch == '+':
+result = num1 + num2 elif ch == '-':
+result = num1 - num2 elif ch == '*':
+result = num1 * num2 elif ch == '/':
+result = num1 / num2 else:
+print("Input character is not recognized!") print(num1, ch , num2, ":", result)
+Output 1: Addition Enter First Number: 100 Enter Second Number: 5
+Enter which operation would you like to perform? Enter any of these char for specific operation +,-,*,/: + 100 + 5 : 105
+ 
+
+
+Output 2: Subtraction Enter First Number: 8 Enter Second Number: 7
+Enter which operation would you like to perform? Enter any of these char for specific operation +,-,*,/: - 8 - 7 : 1
+
+Output 3: Multiplication Enter First Number: 6 Enter Second Number: 8
+Enter which operation would you like to perform? Enter any of these char for specific operation +,-,*,/: * 6 * 8 : 48
+
+Output 4: Division Enter First Number: 20 Enter Second Number: 5
+Enter which operation would you like to perform? Enter any of these char for specific operation +,-,*,/: /
+20 5 : 4.0
+
+c)	Word and character count of a given string.
+
+Python Program:
+word_count = 0
+char_count = 0
+usr_input = input("Enter a string : ") split_string = usr_input.split() word_count = len(split_string)
+for word in split_string: char_count += len(word)
+print("Total words : {}".format(word_count)) print("Total characters : {}".format(char_count))
+
+Output:
+Enter a string : Hello, How are You? Total words : 4
+Total characters : 16
+
+d)	Area of a given shape (rectangle, triangle and circle) reading shape and appropriate values from standard input.
+
+Python Program:
+width = float(input('Please Enter the Width of a Rectangle: '))
+ 
+
+
+height = float(input('Please Enter the Height of a Rectangle: '))
+
+# calculate the area Area = width * height
+
+# calculate the Perimeter Perimeter = 2 * (width + height)
+print("\n Area of a Rectangle is: %.2f" %Area) print(" Perimeter of Rectangle is: %.2f" %Perimeter)
+
+Output:
+Please Enter the Width of a Rectangle: 22 Please Enter the Height of a Rectangle: 5 Area of a Rectangle is: 110.00
+Perimeter of Rectangle is: 54.00
+
+Python Program:
+# Python Program to find the area of triangle
+# Three sides of the triangle a, b and c are provided by the user
+
+a = float(input('Enter first side: '))
+b = float(input('Enter second side: ')) c = float(input('Enter third side: '))
+
+# calculate the semi-perimeter s = (a + b + c) / 2
+
+# calculate the area
+area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+print('The area of the triangle is %0.2f' %area)
+
+Output:
+Enter first side: 3 Enter second side: 4 Enter third side: 5
+The area of the triangle is 6.00
+
+Python Program:
+# Python Program to find Diameter, Circumference, and Area of a Circle
+
+PI = 3.14
+radius = float(input(' Please Enter the radius of a circle: ')) diameter = 2 * radius
+ 
+
+
+circumference = 2 * PI * radius area = PI * radius * radius
+
+print(" \n Diameter of a Circle = %.2f" %diameter)
+print(" Circumference of a Circle = %.2f" %circumference) print(" Area of a Circle = %.2f" %area)
+
+Output:
+Please Enter the radius of a circle: 5 Diameter of a Circle = 10.00 Circumference of a Circle = 31.40 Area of a Circle = 78.50
+
+Combined Python Program:
+#Area
+print("Select one of the following:") print("1. Rectangle\n2. Triangle\n3. Circle") s=input("Enter your choice: ")
+if s=='1':
+x=int(input("Enter length:")) y=int(input("Enter breadth:")) print("Area={}".format(x*y))
+
+elif s=='2': x=int(input("Enter base:")) y=int(input("Enter height:"))
+print("Area={}".format(0.5*x*y))
+
+elif s=='3': x=int(input("Enter radius:"))
+print("Area={}".format(3.14*x*x))
+
+else:
+print("Enter a valid choice")
