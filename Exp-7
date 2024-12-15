@@ -1,0 +1,45 @@
+Aim: Design a system using Arduino where you can monitor Soil Moisture of a plant on an LCD
+If soil moisture is less, then LED should glow. 
+
+Hardware Library: ARDUINO UNO
+
+
+Simulator: Proteus
+
+Components: Soil Moisture Sensor, Arduino UNO, Jumping wires, LED
+
+Theory:
+
+Soil moisture sensors measure the volumetric water content in soil. Since the direct gravimetric measurement of free soil moisture requires removing, drying, and weighing of a sample, soil moisture sensors measure the volumetric water content indirectly by using some other property of the soil, such as electrical resistance, dielectric constant, or interaction with neutrons, as a proxy for the moisture content.
+ 
+
+
+Connections:
+
+Code:
+int sensorPin = A0; int sensorValue; int limit = 300;
+
+void setup() { Serial.begin(9600); pinMode(13, OUTPUT);
+}
+
+void loop() {
+
+sensorValue = analogRead(sensorPin); Serial.println("Analog Value : "); Serial.println(sensorValue);
+
+if (sensorValue<limit) { digitalWrite(13, HIGH);
+}
+else {
+digitalWrite(13, LOW);
+ 
+
+
+}
+
+delay(1000);
+}
+Output:
+
+
+
+ 
+
