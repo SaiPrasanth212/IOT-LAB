@@ -1,0 +1,23 @@
+9.To build a prototype for Air Quality Monitoring system
+“IOT BASED AIR QUALITY MONITORING AND ALARM SYSTEM” gases are provided as input to the MQ-2 gas sensor connected to the raspberry pi. If the provided gas is detected by the MQ-2 gas sensor then digital signal will be sent to Raspberry pi. Further, the output devices connected to the Raspberry pi i.e LCD display, LED bulb and Buzzer will get turned ON. Also, a message “GAS DETECTED AND ALARM ON” will get displayed. If gases are not detected then Output devices connected to Raspberry pi will be in initial state i.e OFF and a message
+–“ GAS NOT DETECTED AND ALARM OFF” 
+•	MQ135 Gas sensor
+•	Arduino Uno
+•	Wi-Fi module ESP8266
+•	16X2 LCD
+•	Breadboard
+•	10K potentiometer
+•	1K ohm resistors
+•	220 ohm resistor
+•	Buzzer
+
+#include "MQ135.h"
+void setup (){
+Serial.begin (9600);
+}
+void loop() {
+MQ135 gasSensor = MQ135(A0); // Attach sensor to pin A0
+float rzero = gasSensor.getRZero();
+Serial.println (rzero);
+delay(1000);
+}
