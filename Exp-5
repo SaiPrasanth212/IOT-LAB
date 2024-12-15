@@ -1,0 +1,43 @@
+Aim: To measure distance using Ultrasonic Sensor.
+
+Hardware Library: ARDUINO UNO
+
+Components:  Ultrasonic Sensor
+
+Explanation:
+
+Physical Connections:-
+
+In breadboard connect ultrasonic sensor
+
+Back side pins of sensor:- ( in breadboard vertical connections( in between) are there)
+
+1)	VCC to 5v in Arduino board
+2)	Trig to pin 13 of digital pin of Arduino
+3)	Echo to pin 12 of digital pin of Arduino
+4)	Gnd to Gnd of Arduino board Connect USB from lappy to Arduino Code:
+const int trigPin = 13; const int echoPin = 12; void setup() {
+Serial.begin(96 00);} void loop()
+{
+
+long duration, inches, cm; pinMode(trigPin, OUTPUT);
+ 
+
+
+digitalWrite(trigPin, LOW); delayMicroseconds(2); digitalWrite(trigPin, HIGH); delayMicroseconds(10); digitalWrite(trigPin, LOW); pinMode(echoPin, INPUT); duration = pulseIn(echoPin, HIGH);
+inches = microsecondsToInches(duration); cm = microsecondsToCentimeters(duration); Serial.print(inches);
+Serial.print("in, "); Serial.print(cm); Serial.print("cm"); Serial.println(); delay(1000);
+}
+
+long microsecondsToInches(long microseconds)
+
+{return microseconds / 74 / 2;
+
+}
+
+long microsecondsToCentimeters(long microseconds)
+
+{return microseconds / 29 / 2;}
+
+
+Verify your code in Arduino IDE that is sketch. Upload your code in Arduino IDE After connecting, all done. Press Ctrl + shift + M. You can see output window
