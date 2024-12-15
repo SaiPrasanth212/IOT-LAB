@@ -1,0 +1,38 @@
+Aim: Design a system using Arduino that blinks an LED when you detect a motion in an area 
+Write working, connections, code and expected output.
+
+Hardware Library: ARDUINO UNO
+
+Components: PIR Sensor, Arduino UNO, Jumping wires, LED
+
+Theory:
+
+"Passive Infra-Red" sensor is a "Pyroelectric IR Sensor" which generates energy when exposed to heat. Everything emits some low level of radiation, the hotter the object is, the more radiation is emitted. When a human or an animal (with IR radiation wavelength of 9.4 µMeter) approaches the sensors range the sensor detects the heat in the form of infrared radiation.
+The sensor only detects the energy emitted by other objects and don‟t produce any, that's why the sensor is called a PIR or "Passive Infra-Red" sensor. These sensors are small, cheap, rugged, low power and very easy to use.
+
+
+Connections:
+With Arduino,
+∙	Connect the VCC of the PIR sensor to the 5v pin of Arduino.
+∙	Then connect the output pin to D13
+∙	GND to the Ground pin of the Arduino.
+∙	Connect the LED to the D2 pin of the Arduino.
+
+∙	Now upload the code and test
+ 
+
+
+Code:
+int LED = 13; // the pin that the LED is attached to int PIR = 2; // the pin that the sensor is attached to
+void setup() {
+pinMode(LED, OUTPUT); // initialize LED as an output
+pinMode(PIR, INPUT); // initialize sensor as an input Serial.begin(9600); // initialize serial
+}
+void loop(){
+if (digitalRead(PIR) == HIGH) { // check if the sensor is HIGH digitalWrite(LED, HIGH); // turn LED ON
+Serial.println("Motion detected!"); delay(100); // delay 100 milliseconds } else {
+digitalWrite(LED, LOW); // turn LED OFF Serial.println("Motion stopped!"); delay(100); // delay 100 milliseconds }
+}
+
+Output: Motion detected Motion detected Motion detected Motion detected Motion stopped Motion stopped Motion detected Motion detected Motion detected Motion stopped
+ 
