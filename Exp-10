@@ -1,0 +1,49 @@
+10.To build a Prototype for Water Controller system
+
+“Iot Based Automatic Water Controller” the input is given to the Ultrasonic sensor which is used to sense the water level. Then it sends to the signals to buzzer , led and motor. Buzzer and Leds are act as a alerting system. This indicates when the water tank is full. If the tank is full then the relay stops the water pump automatically, because it acts as a switch. If the water goes into the below level which is given by us, then the relay automatically switches on the water pump and it fills the water in the tank up to high level which is also given by us according to the tank size.
+
+int trigPin = (8); // ADD THE TRIG PIN ON PIN 10. 
+int echoPin = (10); // ADD THE ECHO PIN ON PIN 9. 
+int duration, distance; // ADD TYPES 'DURATION' AND 'DISTANCE'. 
+void setup() 
+{ 
+Serial.begin(9600); 
+pinMode (11, OUTPUT); 
+pinMode (0, OUTPUT); 
+pinMode (2, OUTPUT); 
+pinMode (12, OUTPUT); 
+pinMode (trigPin, OUTPUT); // SAME AS ABOVE, THE TRIG PIN WILL SEND THE ULTRASONIC WAVE. 
+pinMode (echoPin, INPUT); // THE ECHO PIN WILL RECEIVE THE REBOUNDED WAVE, SO IT MUST BE AN INPUT TYPE. 
+} 
+void loop () 
+{ 
+// HERE, LOW MEANS OFF AND HIGH MEANS ON. 
+digital Write (trigPin, HIGH); 
+delay (50); 
+digital Write (trigPin, LOW); 
+duration=pulseIn (echoPin, HIGH); 
+distance=(duration/2)/29.1; 
+if (distance <10) // IF THE SENSOR DETECTS AN OBSTACLE LESS THAN 30 CM IN DISTANCE, THE LED WILL START TO BLINK. 
+{digitalWrite (12, HIGH);
+digitalWrite (0, HIGH); 
+digitalWrite (2, LOW); 
+} 
+delay (50); 
+if (distance >=10) // IF NO OBSTACLE IS THERE WITHIN 30 CM, THE LED SHOULD TURN OFF. 
+{ 
+digitalWrite (12, LOW); 
+digitalWrite (2, HIGH); 
+digitalWrite (0, LOW); 
+} 
+delay (50); 
+Serial. Print("cm"); 
+if(distance<=7&&distance>=3) { 
+digitalWrite (11, HIGH); 
+} 
+delay (3000); 
+digitalWrite (11, LOW); 
+digitalWrite (2, LOW); 
+digitalWrite (0, LOW); 
+Serial.println(distance); 
+}
+ 
